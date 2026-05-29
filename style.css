@@ -1,0 +1,205 @@
+/* Modern Typography-First Design for G.G. McNickle
+    Palette: Parchment, Charcoal, Sage, and Terracotta
+*/
+
+:root {
+    --bg-color: #f4f1ea; /* Warm, tactile paper color */
+    --text-color: #2c2f2d; /* Soft charcoal, reduces eye strain */
+    --accent-color: #b85b3f; /* Terracotta/Rust red - distinguished and academic */
+    --accent-hover: #8f442d;
+    --meta-color: #5c665e; /* Muted sage green for subtitles/dates */
+    --border-color: #e3ded5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    /* Subtle CSS grain/texture effect to make it feel like physical paper */
+    background-image: 
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.01)), 
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.01) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.01));
+    background-position: 0 0, 2px 2px;
+    background-size: 4px 4px;
+    
+    color: var(--text-color);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 18.5px;
+    line-height: 1.75;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    
+    /* A subtle top accent line to ground the page */
+    border-top: 6px solid var(--accent-color);
+}
+
+/* Typography */
+h1, h2, h3, .subtitle {
+    font-family: 'Work Sans', Helvetica, sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #1a1c1b;
+}
+
+h1 {
+    font-size: 2.6rem;
+    margin-bottom: 0.2rem;
+}
+
+h2 {
+    font-size: 1.6rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--meta-color);
+    margin-bottom: 3.5rem;
+}
+
+p {
+    margin-bottom: 1.6rem;
+}
+
+/* Interactive Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(184, 91, 63, 0.3);
+    transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+a:hover {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+    background-color: rgba(184, 91, 63, 0.05); /* Very subtle highlight on hover */
+}
+
+/* Blockquotes (For philosophical excerpts) */
+blockquote {
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--meta-color);
+    border-left: 3px solid var(--accent-color);
+    padding: 1.2rem 1.5rem;
+    margin: 2rem 0;
+    background-color: rgba(92, 102, 94, 0.05);
+    border-radius: 0 4px 4px 0;
+    
+    /* This creates a clean boundary so the background doesn't slide under the photo */
+    overflow: hidden; 
+}
+
+/* Lists and Micro-interactions */
+.publication-list {
+    list-style: none;
+}
+
+.publication-list li {
+    margin-bottom: 1.8rem;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--border-color);
+    transition: border-color 0.3s ease;
+}
+
+/* The left line darkens when you hover over a specific publication */
+.publication-list li:hover {
+    border-left-color: var(--meta-color); 
+}
+
+.context-note {
+    font-size: 0.95rem;
+    color: var(--meta-color);
+    font-style: italic;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+address {
+    font-style: normal;
+    background: #f4f1ea;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Footer */
+footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--meta-color);
+    font-family: 'Work Sans', Helvetica, sans-serif;
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+    float: right;
+    width: 220px;
+    height: 280px;
+    object-fit: cover; /* This ensures the image fills the box without stretching */
+    margin: 0.5rem 0 1.5rem 2.5rem;
+    border-radius: 8px; /* Soft, modern rounded corners */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.03); /* A very soft drop shadow */
+    
+    /* This filter slightly mutes the image to match the site's academic vibe */
+    filter: sepia(10%) contrast(105%) saturate(85%); 
+    transition: filter 0.4s ease;
+}
+
+/* When a user hovers over the photo, it briefly snaps back to full, bright color */
+.profile-photo:hover {
+    filter: sepia(0%) contrast(100%) saturate(100%);
+}
+
+/* Research Photo Styling (Left Aligned) */
+.research-photo {
+    float: left;
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    margin: 0.5rem 2.5rem 1.5rem 0; /* Pushes text away on the right */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+    
+    /* Matches the subtle, muted academic filter of the profile photo */
+    filter: sepia(10%) contrast(105%) saturate(85%); 
+    transition: filter 0.4s ease;
+}
+
+.research-photo:hover {
+    filter: sepia(0%) contrast(100%) saturate(100%);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 650px) {
+    body {
+        padding: 30px 20px;
+        border-top-width: 4px;
+    }
+    
+    h1 { font-size: 2.2rem; }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
